@@ -1,0 +1,10 @@
+{
+  "name": "hazel",
+  "private": true,
+  "scripts": {
+    "dev:api": "pnpm --filter api start:dev",
+    "dev:frontend": "pnpm --filter frontend start",
+    "build": "pnpm --recursive build",
+    "test": "pnpm --recursive test"
+  }
+}
