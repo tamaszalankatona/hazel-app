@@ -10,7 +10,6 @@ import { households } from './households';
 import { users } from './user';
 
 export const householdMemberRole = pgEnum('household_member_role', [
-  'OWNER',
   'ADMIN',
   'ADULT',
   'CHILD',
