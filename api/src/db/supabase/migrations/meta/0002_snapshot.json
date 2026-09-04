@@ -1,6 +1,6 @@
 {
-  "id": "cd2f152a-1ff5-4729-b1a7-27c4cc658e7e",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "ee7aff2e-2a7f-40b2-bec3-e6392f165bbc",
+  "prevId": "d49cb6be-a7b0-4212-ac78-5a5d058963f7",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -179,6 +179,18 @@
           "primaryKey": false,
           "notNull": true
         },
+        "password": {
+          "name": "password",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
         "avatarUrl": {
           "name": "avatarUrl",
           "type": "text",
@@ -223,7 +235,15 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
+      "uniqueConstraints": {
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false
@@ -234,7 +254,6 @@
       "name": "household_member_role",
       "schema": "public",
       "values": [
-        "OWNER",
         "ADMIN",
         "ADULT",
         "CHILD"
