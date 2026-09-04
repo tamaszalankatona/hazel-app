@@ -1,9 +1,16 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.enableCors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  });
+  app.use(cookieParser());
 
   const config = new DocumentBuilder()
     .setTitle('Hazel API')
@@ -13,7 +20,6 @@ async function bootstrap() {
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
 
-  app.enableCors();
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

@@ -1,4 +1,4 @@
-CREATE TYPE "public"."household_member_role" AS ENUM('OWNER', 'ADMIN', 'ADULT', 'CHILD');--> statement-breakpoint
+CREATE TYPE "public"."household_member_role" AS ENUM('ADMIN', 'ADULT', 'CHILD');--> statement-breakpoint
 CREATE TABLE "household_members" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"householdId_id" uuid NOT NULL,
@@ -23,6 +23,7 @@ CREATE TABLE "households" (
 CREATE TABLE "users" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" varchar(32) NOT NULL,
+	"password" varchar(255),
 	"avatarUrl" text,
 	"timezone" varchar(64) NOT NULL,
 	"locale" varchar(16) DEFAULT 'hu-HU' NOT NULL,
