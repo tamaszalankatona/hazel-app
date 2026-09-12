@@ -1,0 +1,26 @@
+<hlm-tabs tab="login" class="w-full">
+  <hlm-tabs-list
+    aria-label="Authentication"
+    class="!border-border !bg-bg-subtle !grid !h-10 !w-full !grid-cols-2 !rounded-lg !border !p-0"
+  >
+    <button
+      hlmTabsTrigger="login"
+      class="!text-text-secondary hover:!text-text data-[state=active]:!bg-card data-[state=active]:!text-text !h-9 !rounded-md !border-0 !bg-transparent !px-3 !text-sm !font-medium !shadow-none transition-all duration-150 data-[state=active]:!shadow-sm"
+    >
+      Sign In
+    </button>
+
+    <button
+      hlmTabsTrigger="signup"
+      class="!text-text-secondary hover:!text-text data-[state=active]:!bg-card data-[state=active]:!text-text !h-9 !rounded-md !border-0 !bg-transparent !px-3 !text-sm !font-medium !shadow-none transition-all duration-150 data-[state=active]:!shadow-sm"
+    >
+      Create Account
+    </button>
+  </hlm-tabs-list>
+  <div hlmTabsContent="login">
+    <app-login-form-component />
+  </div>
+  <div hlmTabsContent="signup">
+    <app-signup-form-component />
+  </div>
+</hlm-tabs>
