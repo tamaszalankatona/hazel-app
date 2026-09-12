@@ -19,7 +19,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
           console.log('cookies:', request.cookies);
           console.log('access_token:', request.cookies?.access_token);
 
-          return request.cookies?.access_token?.access_token;
+          return request.cookies?.access_token;
         },
       ]),
       ignoreExpiration: false,
