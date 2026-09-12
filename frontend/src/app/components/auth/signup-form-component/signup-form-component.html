@@ -1,0 +1,90 @@
+<div class="mt-4 space-x-5">
+  <app-third-party-login-options></app-third-party-login-options>
+  <form
+    id="auth-signup-form"
+    [formGroup]="form"
+    (submit)="onSubmit()"
+    class="w-full max-w-md space-y-3"
+  >
+    <hlm-field-group class="mb-6">
+      <hlm-field>
+        <label hlmFieldLabel for="name" class="text-text text-sm font-medium">Name</label>
+        <input
+          hlmInput
+          id="name"
+          type="text"
+          placeholder="John Doe"
+          autoComplete="family-name"
+          formControlName="name"
+          class="bg-card text-text placeholder:text-text-muted focus:ring-accent-muted focus:ring-2"
+        />
+        <hlm-field-error validator="required">It cannot be empty</hlm-field-error>
+      </hlm-field>
+      <hlm-field>
+        <label hlmFieldLabel for="email" class="text-text text-sm font-medium">E-mail</label>
+        <input
+          hlmInput
+          id="email"
+          type="email"
+          placeholder="johndoe@example.com"
+          autoComplete="email"
+          formControlName="email"
+          class="bg-card text-text placeholder:text-text-muted focus:ring-accent-muted focus:ring-2"
+        />
+        <hlm-field-error validator="required">It must be a valid email address.</hlm-field-error>
+      </hlm-field>
+
+      <div>
+        <hlm-field class="mb-2">
+          <div class="flex items-center justify-between">
+            <label hlmFieldLabel for="plainPassword" class="text-text text-sm font-medium">
+              Password
+            </label>
+          </div>
+          <hlm-input-group class="w-full">
+            <input
+              hlmInputGroupInput
+              id="plainPassword"
+              [type]="isPasswordVisible ? 'text' : 'password'"
+              formControlName="plainPassword"
+              placeholder="••••••••"
+              autocomplete="password"
+              class="text-text placeholder:text-text-muted text-sm"
+            />
+
+            <hlm-input-group-addon align="inline-end">
+              <button
+                type="button"
+                hlmInputGroupButton
+                variant="ghost"
+                size="icon-xs"
+                [attr.aria-label]="isPasswordVisible ? 'Hide password' : 'Show password'"
+                (click)="toggleShowPassword()"
+              >
+                @if (isPasswordVisible) {
+                  <svg lucideEyeClosed class="size-4"></svg>
+                } @else {
+                  <svg lucideEye class="size-4"></svg>
+                }
+              </button>
+            </hlm-input-group-addon>
+          </hlm-input-group>
+        </hlm-field>
+        <app-password-strength-displayer-component
+          [score]="passwordStrength().score"
+          [label]="passwordStrength().label"
+        ></app-password-strength-displayer-component>
+      </div>
+
+      <div class="flex items-center gap-3 text-xs font-light">
+        <hlm-checkbox inputId="privacy-terms" />
+        <label hlmLabel for="privacy-terms">
+          I agree to Hazel’s <a href="#" class="font-semibold underline">Privacy Charter</a> and
+          <a href="#" class="font-semibold underline">Household Data Sovereignty Terms</a>
+        </label>
+      </div>
+    </hlm-field-group>
+
+    <button hlmBtn type="submit" form="auth-signup-form" class="w-full">Create my Household</button>
+  </form>
+</div>

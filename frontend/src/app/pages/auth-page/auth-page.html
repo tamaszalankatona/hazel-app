@@ -1,0 +1,27 @@
+<div class="mt-12 mb-6 md:mb-12">
+  <div class="mb-6 w-full items-center justify-center space-y-2 text-center">
+    <h1 class="font-newsreader text-3xl">Welcome to Hazel</h1>
+    <h2 class="font-manrope font-light">Your home, all in one place.</h2>
+  </div>
+  <app-card-component>
+    <app-auth-form-switcher content></app-auth-form-switcher>
+  </app-card-component>
+  <div
+    class="border-border bg-secondary-info mt-4 flex h-[50px] w-full items-center justify-between rounded-xl border px-3"
+  >
+    <div class="flex items-center gap-2">
+      <svg lucideMail class="size-5"></svg>
+      <span class="text-xs md:text-sm"> Invited by a family member? </span>
+    </div>
+    <button hlmBtn type="button" variant="link" class="text-sm">
+      Accept invite
+      <svg lucideMoveUpRight class="size-4"></svg>
+    </button>
+  </div>
+  <div class="mt-6 flex items-center justify-center gap-x-1">
+    <svg lucideShieldCheck size="16" class="text-muted-foreground"></svg>
+    <p class="text-muted-foreground text-xs">
+      Encrypted end-to-end. Your family data stays private
+    </p>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="mt-4 space-x-5">
+  <app-third-party-login-options></app-third-party-login-options>
+  <form
+    id="auth-login-form"
+    [formGroup]="form"
+    (submit)="onSubmit()"
+    class="w-full max-w-md space-y-3"
+  >
+    <hlm-field-group class="mb-6">
+      <hlm-field>
+        <label hlmFieldLabel for="email" class="text-text text-sm font-medium">E-mail</label>
+        <input
+          hlmInput
+          id="email"
+          type="email"
+          placeholder="johndoe@example.com"
+          autoComplete="email"
+          formControlName="email"
+          class="bg-card text-text placeholder:text-text-muted focus:ring-accent-muted focus:ring-2"
+        />
+        <hlm-field-error validator="required">It must be a valid email address.</hlm-field-error>
+      </hlm-field>
+
+      <hlm-field>
+        <div class="flex items-center justify-between">
+          <label hlmFieldLabel for="password" class="text-text text-sm font-medium">
+            Password
+          </label>
+          <a routerLink="/auth/forgot-password" class="text-xs">Forgot password?</a>
+        </div>
+        <hlm-input-group class="w-full">
+          <input
+            hlmInputGroupInput
+            id="plainPassword"
+            [type]="isPasswordVisible ? 'text' : 'password'"
+            formControlName="plainPassword"
+            placeholder="••••••••"
+            autocomplete="password"
+            class="text-text placeholder:text-text-muted text-sm"
+          />
+
+          <hlm-input-group-addon align="inline-end">
+            <button
+              type="button"
+              hlmInputGroupButton
+              variant="ghost"
+              size="icon-xs"
+              [attr.aria-label]="isPasswordVisible ? 'Hide password' : 'Show password'"
+              (click)="toggleShowPassword()"
+            >
+              @if (isPasswordVisible) {
+                <svg lucideEyeClosed class="size-4"></svg>
+              } @else {
+                <svg lucideEye class="size-4"></svg>
+              }
+            </button>
+          </hlm-input-group-addon>
+        </hlm-input-group>
+        <div class="flex items-center gap-3">
+          <hlm-checkbox inputId="rememberMe" />
+          <label hlmLabel for="rememberMe">Remember me</label>
+        </div>
+      </hlm-field>
+    </hlm-field-group>
+
+    <button hlmBtn type="submit" form="auth-login-form" class="w-full">Sign in</button>
+  </form>
+</div>
