@@ -68,15 +68,14 @@ export class AuthController {
   ): Promise<AuthResponseDto> {
     const user: AuthUser = await this.authService.validateUser(loginBodyDto);
 
-    const token: Record<string, string> = await this.authService.login(
-      user.email,
-    );
+    const token: string = await this.authService.login(user.email);
 
     res.cookie('access_token', token, {
       httpOnly: true,
       secure: false, //localhost only
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
-      sameSite: 'strict',
+      path: '/',
+      sameSite: 'lax',
     });
 
     return { message: 'Sign in successfull' };

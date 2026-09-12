@@ -21,18 +21,17 @@ export class AuthService {
   ) {}
 
   //login
-  async login(email: string): Promise<{ access_token: string }> {
+  async login(email: string): Promise<string> {
     const user = await this.userService.findUserByEmail(email);
 
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
     }
-    return {
-      access_token: await this.jwtService.signAsync({
-        sub: user.id,
-        email: user.email,
-      }),
-    };
+
+    return this.jwtService.signAsync({
+      sub: user.id,
+      email: user.email,
+    });
   }
 
   // validate user
