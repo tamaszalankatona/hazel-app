@@ -92,7 +92,7 @@ export class AuthController {
     description: 'User is not authenticated',
   })
   async getMe(@Request() req: { user: AuthUser }): Promise<AuthMeResponseDto> {
-    return this.authService.getMe(req.user);
+    return this.authService.getMe(req.user.id);
   }
 
   // logout

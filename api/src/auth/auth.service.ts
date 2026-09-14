@@ -64,15 +64,26 @@ export class AuthService {
   }
 
   // get me
-  async getMe(user: AuthUser): Promise<AuthMeResponseDto> {
-    const memberships = await this.db
-      .select({
-        id: householdMembers.id,
-        householdId: householdMembers.householdId,
-        role: householdMembers.role,
-      })
-      .from(householdMembers)
-      .where(eq(householdMembers.userId, user.id));
+  async getMe(userId: string) {
+    const user = await this.db.query.users.findFirst({
+      where: eq(users.id, userId),
+    });
+
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+
+    const memberships = await this.db.query.householdMembers.findMany({
+      where: eq(householdMembers.userId, user.id),
+      with: {
+        household: true,
+      },
+    });
+
+    const activeHousehold =
+      memberships.find(
+        (membership) => membership.householdId === user.activeHouseholdId,
+      )?.household ?? null;
 
     return {
       user: {
@@ -80,8 +91,15 @@ export class AuthService {
         email: user.email,
         name: user.name,
       },
-      memberships,
-      activeHousehold: null,
+
+      memberships: memberships.map((membership) => ({
+        id: membership.id,
+        householdId: membership.householdId,
+        role: membership.role,
+        household: membership.household,
+      })),
+
+      activeHousehold,
     };
   }
 }
