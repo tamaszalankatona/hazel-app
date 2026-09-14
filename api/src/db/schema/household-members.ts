@@ -8,6 +8,7 @@ import {
 } from 'drizzle-orm/pg-core';
 import { households } from './households';
 import { users } from './user';
+import { InferSelectModel } from 'drizzle-orm';
 
 export const householdMemberRole = pgEnum('household_member_role', [
   'ADMIN',
@@ -50,3 +51,5 @@ export const householdMembers = pgTable(
     ),
   ],
 );
+
+export type HouseholdMembersModel = InferSelectModel<typeof householdMembers>;

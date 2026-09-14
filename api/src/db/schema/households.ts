@@ -1,3 +1,4 @@
+import { InferSelectModel } from 'drizzle-orm';
 import { pgTable, timestamp, uuid, varchar } from 'drizzle-orm/pg-core';
 
 export const households = pgTable('households', {
@@ -16,3 +17,5 @@ export const households = pgTable('households', {
     .notNull(),
   deletedAt: timestamp('deleted_at', { withTimezone: true }).defaultNow(),
 });
+
+export type HouseholdModel = InferSelectModel<typeof households>;

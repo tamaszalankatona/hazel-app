@@ -1,4 +1,5 @@
 import { pgTable, uuid, timestamp, varchar, text } from 'drizzle-orm/pg-core';
+import { households } from './households';
 
 export const users = pgTable('users', {
   id: uuid('id').defaultRandom().primaryKey().notNull(),
@@ -8,6 +9,10 @@ export const users = pgTable('users', {
   avatarUrl: text('avatarUrl'),
   timezone: varchar('timezone', { length: 64 }).notNull(),
   locale: varchar('locale', { length: 16 }).default('hu-HU').notNull(),
+  activeHouseholdId: uuid('active_household_id').references(
+    () => households.id,
+    { onDelete: 'set null' },
+  ),
   updatedAt: timestamp('updated_at', { withTimezone: true })
     .defaultNow()
     .notNull(),
