@@ -1,0 +1,32 @@
+<form
+  id="create-household-details-form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  class="space-y-3"
+>
+  <hlm-field-group>
+    <hlm-field>
+      <label hlmFieldLabel for="name">Household name</label>
+      <input
+        hlmInput
+        id="name"
+        placeholder="Enter your household's name"
+        autoComplete="off"
+        formControlName="name"
+      />
+      <hlm-field-error validator="required">Household name must be entered.</hlm-field-error>
+      <hlm-field-description class="flex items-center justify-start gap-x-1 text-xs">
+        <svg lucideInfo size="14"></svg>
+        You can change it later in the settings
+      </hlm-field-description>
+    </hlm-field>
+    <hlm-field>
+      <label hlmFieldLabel for="timezone-selector">Timezone</label>
+      <app-timezone-selector />
+      <hlm-field-description class="flex items-center justify-start gap-x-1 text-xs">
+        <svg lucideInfo size="14"></svg>
+        Used for scheduling shared reminders, chores and calendar sync
+      </hlm-field-description>
+    </hlm-field>
+  </hlm-field-group>
+</form>

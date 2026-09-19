@@ -10,5 +10,6 @@ import { HlmLabelImports } from '@spartan-ng/helm/label';
   templateUrl: './card-component.html',
 })
 export class CardComponent {
-  protected readonly header = contentChild('[header]');
+  protected readonly header = contentChild('header');
+  protected readonly footer = contentChild('footer');
 }

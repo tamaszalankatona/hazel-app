@@ -1,11 +1,13 @@
-<hlm-card class="bg-card w-full max-w-sm">
-  @if (header()) {
-    <hlm-card-header>
-      <ng-content select="[header]" />
-    </hlm-card-header>
-  }
+<hlm-card class="bg-card w-full max-w-sm py-4">
+  <hlm-card-header>
+    <ng-content select="[header]" />
+  </hlm-card-header>
 
   <div hlmCardContent>
     <ng-content select="[content]" />
   </div>
+
+  <hlm-card-footer>
+    <ng-content select="[footer]" />
+  </hlm-card-footer>
 </hlm-card>

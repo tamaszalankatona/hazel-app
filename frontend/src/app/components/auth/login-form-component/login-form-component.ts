@@ -55,7 +55,7 @@ export class LoginFormComponent {
 
     this.authState.login(this.form.getRawValue()).subscribe({
       next: () => {
-        this.router.navigate(['/overview']);
+        this.router.navigate(['household/create']);
       },
     });
   }

@@ -1,0 +1,40 @@
+@let step = steps[householdCreationStateService.currentStep()];
+
+<app-card-component>
+  <div header class="flex w-full flex-col items-start justify-start space-y-2 py-2 text-start">
+    <app-create-household-stepper />
+    <div>
+      <h1 class="font-newsreader text-2xl">{{ step.title }}</h1>
+      <h2 class="font-manrope font-light">{{ step.description }}</h2>
+    </div>
+  </div>
+  @if (step.component) {
+    <ng-container content *ngComponentOutlet="step.component" />
+  }
+  <div footer class="flex w-full items-center justify-between">
+    <button
+      hlmBtn
+      variant="ghost"
+      type="button"
+      (click)="householdCreationStateService.previousStep()"
+      [disabled]="householdCreationStateService.currentStep() === 0"
+    >
+      Back
+    </button>
+
+    @if (householdCreationStateService.currentStep() < steps.length - 1) {
+      <button
+        hlmBtn
+        variant="default"
+        type="button"
+        (click)="householdCreationStateService.nextStep()"
+      >
+        Continue
+      </button>
+    } @else {
+      <button hlmBtn variant="ghost" type="button" (click)="finishHouseholdCreation()">
+        Finish
+      </button>
+    }
+  </div>
+</app-card-component>

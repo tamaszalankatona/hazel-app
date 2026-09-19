@@ -1,0 +1,15 @@
+<div class="mb-4 flex w-full flex-col items-start gap-2">
+  <p class="text-muted-foreground text-xs">
+    Step {{ householdCreationStateService.currentStep() + 1 }} of {{ maxStep + 1 }}
+  </p>
+
+  <div class="flex w-full flex-row gap-2">
+    @for (step of steps; track $index) {
+      <div
+        class="h-1 flex-1 rounded-full"
+        [class.bg-primary]="$index <= householdCreationStateService.currentStep()"
+        [class.bg-border]="$index > householdCreationStateService.currentStep()"
+      ></div>
+    }
+  </div>
+</div>
