@@ -16,10 +16,23 @@ export const routes: Routes = [
   },
 
   {
+    path: 'household',
+
+    canActivate: [authGuard],
+    children: [
+      {
+        path: 'create',
+        loadComponent: () =>
+          import('./pages/create-household-page/create-household-page').then(
+            (m) => m.CreateHouseholdPage,
+          ),
+      },
+    ],
+  },
+
+  {
     path: '',
     redirectTo: 'overview',
     pathMatch: 'full',
   },
 ];
-
-// FIX: group guard, so dont have to repeat it on every route

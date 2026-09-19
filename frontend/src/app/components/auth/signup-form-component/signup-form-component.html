@@ -1,11 +1,6 @@
-<div class="mt-4 space-x-5">
+<div class="mt-2 space-x-5">
   <app-third-party-login-options></app-third-party-login-options>
-  <form
-    id="auth-signup-form"
-    [formGroup]="form"
-    (submit)="onSubmit()"
-    class="w-full max-w-md space-y-3"
-  >
+  <form id="auth-signup-form" [formGroup]="form" (submit)="onSubmit()" class="w-full space-y-3">
     <hlm-field-group class="mb-6">
       <hlm-field>
         <label hlmFieldLabel for="name" class="text-text text-sm font-medium">Name</label>
@@ -41,7 +36,7 @@
               Password
             </label>
           </div>
-          <hlm-input-group class="w-full">
+          <hlm-input-group class="h-11">
             <input
               hlmInputGroupInput
               id="plainPassword"
@@ -85,6 +80,8 @@
       </div>
     </hlm-field-group>
 
-    <button hlmBtn type="submit" form="auth-signup-form" class="w-full">Create my Household</button>
+    <button hlmBtn type="submit" size="lg" form="auth-signup-form" class="w-full">
+      Create my Household
+    </button>
   </form>
 </div>

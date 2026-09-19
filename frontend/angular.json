@@ -16,19 +16,20 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-  "browser": "src/main.ts",
-  "tsConfig": "tsconfig.app.json",
-  "assets": [
-    {
-      "glob": "**/*",
-      "input": "public"
-    }
-  ],
-  "styles": ["src/styles.css"],
-  "security": {
-    "allowedHosts": []
-  }
-}
+            "browser": "src/main.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": ["src/styles.css"],
+            "security": {
+              "allowedHosts": []
+            },
+            "polyfills": ["@angular/localize/init"]
+          },
           "configurations": {
             "production": {
               "budgets": [

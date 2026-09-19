@@ -35,6 +35,10 @@
     height: 100dvh;
   }
 
+  body {
+    width: 100vw;
+  }
+
   h1 {
     font-size: 3.125rem;
     color: var(--gray-900);
@@ -64,15 +68,12 @@
   main {
     max-width: 100vw;
     min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: start;
     padding: 1rem;
     box-sizing: inherit;
     position: relative;
   }
 </style>
 
-<main class="main">
+<main class="main grid grid-cols-20">
   <router-outlet />
 </main>

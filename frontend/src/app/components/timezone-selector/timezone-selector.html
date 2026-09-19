@@ -1,0 +1,31 @@
+<div class="w-full">
+  <button
+    type="button"
+    hlmBtn
+    variant="outline"
+    [hlmDropdownMenuTrigger]="menu"
+    class="border-border bg-card hover:bg-card file:text-foreground hover:border-border-hover focus-visible:ring-primary/10 placeholder:text-muted-foreground flex h-11 w-full items-center justify-between rounded-md border px-4 text-left text-base font-normal shadow-none transition-colors file:text-sm focus-visible:ring-2 focus-visible:outline-none md:text-sm"
+  >
+    @if (selectedTimezone.value) {
+      <span>{{ selectedTimezone.label }}</span>
+    } @else {
+      <span class="text-text-muted">Choose preferred timezone</span>
+    }
+
+    <svg lucideChevronDown class="text-text-secondary size-5 shrink-0"></svg>
+  </button>
+
+  <ng-template #menu>
+    <hlm-dropdown-menu>
+      <hlm-dropdown-menu-group>
+        <hlm-dropdown-menu-label> Other timezones </hlm-dropdown-menu-label>
+
+        @for (timezone of timezones; track timezone.value) {
+          <button type="button" hlmDropdownMenuItem (click)="setSelectedTimezone(timezone)">
+            {{ timezone.label }}
+          </button>
+        }
+      </hlm-dropdown-menu-group>
+    </hlm-dropdown-menu>
+  </ng-template>
+</div>
