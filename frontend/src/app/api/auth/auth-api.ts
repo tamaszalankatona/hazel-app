@@ -8,13 +8,13 @@ import {
   LoginResponse,
   SignupRequest,
   UserResponse,
-} from '../models/auth.models';
+} from '../../auth/models/auth.models';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthApiService {
   private readonly http = inject(HttpClient);
 
   private readonly apiUrl = 'http://localhost:3000/auth';
