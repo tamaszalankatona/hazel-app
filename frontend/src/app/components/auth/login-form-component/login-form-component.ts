@@ -8,7 +8,7 @@ import { LucideEye, LucideEyeClosed } from '@lucide/angular';
 import { ThirdPartyLoginOptions } from '../third-party-login-options-component/third-party-login-options/third-party-login-options';
 import { Router, RouterLink } from '@angular/router';
 import { HlmCheckboxImports } from '@spartan-ng/helm/checkbox';
-import { AuthStateService } from '../../../auth/services/auth-state';
+import { AuthStateService } from '../../../services/state-services/auth-state/auth-state';
 
 @Component({
   imports: [

@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
-import { AuthService } from '../../auth/services/auth';
 import { Router } from '@angular/router';
-import { AuthStateService } from '../../auth/services/auth-state';
+import { AuthStateService } from '../../services/state-services/auth-state/auth-state';
 
 @Component({
   imports: [HlmButtonImports],
