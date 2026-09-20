@@ -23,7 +23,6 @@ import { CardComponent } from '../../components/card/card-component/card-compone
       md:col-end-15
       lg:col-start-8
       lg:col-end-14
-      
     `,
   },
   selector: 'app-auth-page',

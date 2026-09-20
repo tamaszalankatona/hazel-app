@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { API_ENDPOINTS } from '../endpoints.constants';
+import { API_ENDPOINTS } from '../../constants/endpoints.constants';
 import { CreateHouseholdModel, HouseholdResponseModel } from './household.models';
 import { Observable } from 'rxjs';
 import { BASE_URL } from '../../constants/api.constants';
