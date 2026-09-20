@@ -9,9 +9,8 @@ import { HlmInputGroupImports } from '@spartan-ng/helm/input-group';
 import { ThirdPartyLoginOptions } from '../third-party-login-options-component/third-party-login-options/third-party-login-options';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { checkPasswordStrength } from '../../../utils/password-strength';
-import { distinctUntilChanged } from 'rxjs';
 import { PasswordStrengthDisplayerComponent } from '../password-strength-displayer-component/password-strength-displayer-component';
-import { AuthService } from '../../../auth/services/auth';
+import { AuthApiService } from '../../../api/auth/auth-api';
 import { SignupRequest } from '../../../auth/models/auth.models';
 import { LucideEye, LucideEyeClosed } from '@lucide/angular';
 
@@ -37,9 +36,8 @@ import { LucideEye, LucideEyeClosed } from '@lucide/angular';
   templateUrl: './signup-form-component.html',
 })
 export class SignupFormComponent {
-  private readonly authService = inject(AuthService);
+  private readonly authApiService = inject(AuthApiService);
   private readonly _fb = inject(FormBuilder);
-  private readonly router = inject(Router);
 
   protected isPasswordVisible: boolean = false;
 
@@ -75,7 +73,7 @@ export class SignupFormComponent {
       locale: navigator.language,
     };
 
-    this.authService.signUp(signUpData).subscribe({
+    this.authApiService.signUp(signUpData).subscribe({
       next: () => {
         console.log('Sign Up successfull');
       },

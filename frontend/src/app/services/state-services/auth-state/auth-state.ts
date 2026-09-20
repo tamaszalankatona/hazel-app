@@ -1,18 +1,23 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { AuthService } from './auth';
-import { AuthMeResponse, AuthResponse, AuthUser, LoginRequest } from '../models/auth.models';
+import { AuthApiService } from '../../../api/auth/auth-api';
+import {
+  AuthMeResponse,
+  AuthResponse,
+  AuthUser,
+  LoginRequest,
+} from '../../../auth/models/auth.models';
 import { Observable, switchMap, tap, map, catchError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthStateService {
-  private readonly authService = inject(AuthService);
+  private readonly authApiService = inject(AuthApiService);
   readonly user = signal<AuthUser | null>(null);
 
   login(credentials: LoginRequest): Observable<AuthMeResponse> {
-    return this.authService.login(credentials).pipe(
-      switchMap(() => this.authService.me()),
+    return this.authApiService.login(credentials).pipe(
+      switchMap(() => this.authApiService.me()),
       tap((response) => {
         this.user.set(response.user);
       }),
@@ -20,7 +25,7 @@ export class AuthStateService {
   }
 
   restoreSession(): Observable<boolean> {
-    return this.authService.me().pipe(
+    return this.authApiService.me().pipe(
       tap((response) => {
         this.user.set(response.user);
       }),
@@ -33,7 +38,7 @@ export class AuthStateService {
   }
 
   logout(): Observable<AuthResponse> {
-    return this.authService.logout().pipe(
+    return this.authApiService.logout().pipe(
       tap(() => {
         this.user.set(null);
       }),

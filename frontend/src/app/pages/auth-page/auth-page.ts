@@ -14,7 +14,16 @@ import { CardComponent } from '../../components/card/card-component/card-compone
     HlmButtonImports,
   ],
   host: {
-    class: ` col-span-full w-full sm:col-start-3 sm:col-end-19 md:col-start-5 md:col-end-17 lg:col-start-7 lg:col-end-15 xl:col-start-8 xl:col-end-14 `,
+    class: `
+      col-span-full
+      w-full
+      sm:col-start-5
+      sm:col-end-17
+      md:col-start-7
+      md:col-end-15
+      lg:col-start-8
+      lg:col-end-14
+    `,
   },
   selector: 'app-auth-page',
   styleUrl: './auth-page.css',

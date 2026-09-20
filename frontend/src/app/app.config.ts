@@ -8,7 +8,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { AuthStateService } from './auth/services/auth-state';
+import { AuthStateService } from './services/state-services/auth-state/auth-state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
