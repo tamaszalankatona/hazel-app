@@ -1,0 +1,27 @@
+<hlm-sidebar>
+  <header hlmSidebarHeader>
+    <app-profile-card />
+  </header>
+
+  <main hlmSidebarContent>
+    @for (group of sidebarMenuItems; track group.label) {
+      <div hlmSidebarGroup class="py-0">
+        <div hlmSidebarGroupLabel>
+          <span class="text-sm">{{ group.label }}</span>
+        </div>
+        <div hlmSidebarGroupContent>
+          <ul hlmSidebarMenu>
+            @for (item of group.items; track item.label) {
+              <li hlmSidebarMenuItem>
+                <a hlmSidebarMenuButton [routerLink]="item.urlPath">
+                  <svg [lucideIcon]="item.icon" [size]="16"></svg>
+                  <span class="text-base">{{ item.label }}</span>
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+  </main>
+</hlm-sidebar>

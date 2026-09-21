@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './auth/guards/auth-guard';
 import { guestGuard } from './auth/guards/guest-guard-guard';
+import { AppShell } from './components/app-shell/app-shell';
 
 export const routes: Routes = [
   {
@@ -10,9 +11,17 @@ export const routes: Routes = [
   },
 
   {
-    path: 'overview',
+    path: '',
+    component: AppShell,
     canActivate: [authGuard],
-    loadComponent: () => import('./pages/overview-page/overview-page').then((m) => m.OverviewPage),
+    children: [
+      {
+        path: 'overview',
+        loadComponent: () =>
+          import('./pages/overview-page/overview-page').then((m) => m.OverviewPage),
+      },
+      // other routes like Notes, etc
+    ],
   },
 
   {

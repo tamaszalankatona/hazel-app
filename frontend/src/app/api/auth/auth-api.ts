@@ -1,15 +1,15 @@
-import { inject, Inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
   AuthMeResponse,
   AuthResponse,
-  AuthUser,
   LoginRequest,
-  LoginResponse,
   SignupRequest,
   UserResponse,
 } from '../../auth/models/auth.models';
 import { Observable } from 'rxjs';
+import { BASE_URL } from '../../constants/api.constants';
+import { API_ENDPOINTS } from '../../constants/endpoints.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -17,31 +17,39 @@ import { Observable } from 'rxjs';
 export class AuthApiService {
   private readonly http = inject(HttpClient);
 
-  private readonly apiUrl = 'http://localhost:3000/auth';
-
   // sign-up
   signUp(data: SignupRequest): Observable<UserResponse> {
-    return this.http.post<UserResponse>(`${this.apiUrl}/sign-up`, data);
+    return this.http.post<UserResponse>(
+      `${BASE_URL}${API_ENDPOINTS.auth.prefix}${API_ENDPOINTS.auth.signUp}`,
+      data,
+    );
   }
 
   // login
   login(data: LoginRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, data, {
-      withCredentials: true,
-    });
+    return this.http.post<AuthResponse>(
+      `${BASE_URL}${API_ENDPOINTS.auth.prefix}${API_ENDPOINTS.auth.login}`,
+      data,
+      {
+        withCredentials: true,
+      },
+    );
   }
 
   // me
   me(): Observable<AuthMeResponse> {
-    return this.http.get<AuthMeResponse>(`${this.apiUrl}/me`, {
-      withCredentials: true,
-    });
+    return this.http.get<AuthMeResponse>(
+      `${BASE_URL}${API_ENDPOINTS.auth.prefix}${API_ENDPOINTS.auth.me}`,
+      {
+        withCredentials: true,
+      },
+    );
   }
 
   // logout
   logout(): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(
-      `${this.apiUrl}/logout`,
+      `${BASE_URL}${API_ENDPOINTS.auth.prefix}${API_ENDPOINTS.auth.logout}`,
       {},
       {
         withCredentials: true,
