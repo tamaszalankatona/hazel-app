@@ -8,10 +8,7 @@ import { DATABASE, type Database } from 'src/drizzle.provider';
 import { CreateHouseholdDto } from './dto/create-household.dto';
 import { eq, and } from 'drizzle-orm';
 import { HouseholdModel, households } from 'src/db/schema/households';
-import {
-  householdMemberRole,
-  householdMembers,
-} from 'src/db/schema/household-members';
+import { householdMembers } from 'src/db/schema/household-members';
 import { users } from 'src/db/schema/user';
 import { HOUSEHOLD_MEMBER_ROLES } from 'src/constants/household-member-roles.enums';
 
