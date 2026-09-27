@@ -9,12 +9,7 @@ import {
 import { households } from './households';
 import { users } from './user';
 import { InferSelectModel } from 'drizzle-orm';
-
-export const householdMemberRole = pgEnum('household_member_role', [
-  'ADMIN',
-  'ADULT',
-  'CHILD',
-]);
+import { householdMemberRole } from './household-member-role';
 
 export const householdMembers = pgTable(
   'household_members',

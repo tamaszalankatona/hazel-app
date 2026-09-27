@@ -3,9 +3,11 @@ import {
   ForbiddenException,
   Inject,
   Injectable,
+  NotFoundException,
 } from '@nestjs/common';
 import { eq, and } from 'drizzle-orm';
 import { householdMembers } from 'src/db/schema/household-members';
+import { households } from 'src/db/schema/households';
 import { users } from 'src/db/schema/user';
 import { DATABASE, type Database } from 'src/drizzle.provider';
 
@@ -51,5 +53,23 @@ export class HouseholdContextService {
     }
 
     return user.activeHouseholdId;
+  }
+
+  async getActiveHouseholdName(userId: string): Promise<string> {
+    const householdId = await this.getActiveHousehold(userId);
+
+    const [household] = await this.db
+      .select({
+        name: households.name,
+      })
+      .from(households)
+      .where(eq(households.id, householdId))
+      .limit(1);
+
+    if (!household) {
+      throw new NotFoundException('Active household not found.');
+    }
+
+    return household.name;
   }
 }

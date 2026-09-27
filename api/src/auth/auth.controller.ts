@@ -25,6 +25,7 @@ import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { UserService } from 'src/user/user.service';
 import { SetPublic } from './set-public.endpoint.decorator';
 import { AuthMeResponseDto } from './dto/auth-me-response.dto';
+import { hashToken } from 'src/utils/hash-household-invitation';
 
 @Controller('auth')
 export class AuthController {

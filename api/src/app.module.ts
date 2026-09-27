@@ -11,6 +11,11 @@ import { JwtAuthGuard } from './auth/jwt-auth.gurad';
 import { HouseholdController } from './household/household.controller';
 import { HouseholdModule } from './household/household.module';
 import { HouseholdService } from './household/household.service';
+import { HouseholdContextService } from './household/household-context/household-context.service';
+import { HouseholdInvitationsService } from './household/invitations/household-invitations/household-invitations.service';
+import { HouseholdMembersService } from './household/members/household-members/household-members.service';
+import { SendInvitationEmailService } from './household/invitations/send-invitation-email/send-invitation-email.service';
+import { AuthService } from './auth/auth.service';
 
 @Module({
   imports: [
@@ -30,6 +35,11 @@ import { HouseholdService } from './household/household.service';
       useClass: JwtAuthGuard,
     },
     HouseholdService,
+    HouseholdContextService,
+    HouseholdInvitationsService,
+    HouseholdMembersService,
+    SendInvitationEmailService,
+    AuthService,
   ],
 })
 export class AppModule {}
