@@ -26,6 +26,7 @@ import { UserService } from 'src/user/user.service';
 import { SetPublic } from './set-public.endpoint.decorator';
 import { AuthMeResponseDto } from './dto/auth-me-response.dto';
 import { hashToken } from 'src/utils/hash-household-invitation';
+import { SkipActiveHousehold } from 'src/household/decorators/skip-active-household.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -36,6 +37,7 @@ export class AuthController {
 
   // sign up route
   @SetPublic()
+  @SkipActiveHousehold()
   @Post('sign-up')
   @HttpCode(HttpStatus.CREATED)
   @ApiOkResponse({
@@ -83,6 +85,7 @@ export class AuthController {
   }
 
   // me
+  @SkipActiveHousehold()
   @Get('me')
   @HttpCode(HttpStatus.OK)
   @ApiOkResponse({
@@ -98,6 +101,7 @@ export class AuthController {
 
   // logout
   @SetPublic()
+  @SkipActiveHousehold()
   @Post('logout')
   @HttpCode(HttpStatus.CREATED)
   @ApiOkResponse({

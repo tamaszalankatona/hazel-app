@@ -25,6 +25,7 @@ import { CreateInvitationDto } from './dto/create-invitation.dto';
 import { HouseholdInvitationsService } from './invitations/household-invitations/household-invitations.service';
 import { AcceptInvitationDto } from './invitations/household-invitations/dto/accept-invitation.dto';
 import { ActiveHouseholdId } from './decorators/active-household-id.decorator';
+import { SkipActiveHousehold } from './decorators/skip-active-household.decorator';
 
 @Controller('household')
 export class HouseholdController {
@@ -34,6 +35,7 @@ export class HouseholdController {
   ) {}
 
   // create
+  @SkipActiveHousehold()
   @Post('create')
   @HttpCode(HttpStatus.CREATED)
   @ApiCreatedResponse({
@@ -65,6 +67,7 @@ export class HouseholdController {
   }
 
   // update active household
+  @SkipActiveHousehold()
   @Patch('active')
   @HttpCode(HttpStatus.NO_CONTENT)
   @ApiNoContentResponse({
@@ -109,6 +112,7 @@ export class HouseholdController {
   }
 
   // accept invitation
+  @SkipActiveHousehold()
   @Post('accept-invitation')
   @ApiOperation({
     summary: 'Accept a household invitation',
