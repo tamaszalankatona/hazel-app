@@ -6,6 +6,7 @@ import { HouseholdInvitationsService } from './invitations/household-invitations
 import { SendInvitationEmailService } from './invitations/send-invitation-email/send-invitation-email.service';
 import { AuthService } from 'src/auth/auth.service';
 import { UserService } from 'src/user/user.service';
+import { HouseholdMembersController } from './members/household-members/household-members.controller';
 
 @Module({
   providers: [
@@ -17,5 +18,6 @@ import { UserService } from 'src/user/user.service';
     AuthService,
     UserService,
   ],
+  controllers: [HouseholdMembersController],
 })
 export class HouseholdModule {}

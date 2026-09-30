@@ -93,4 +93,6 @@ export class HouseholdService {
       .set({ activeHouseholdId: householdId })
       .where(eq(users.id, userId));
   }
+
+  // leave household
 }
