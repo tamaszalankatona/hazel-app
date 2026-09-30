@@ -24,6 +24,7 @@ import { UpdateActiveHouseholdDto } from './dto/update-active-household.dto';
 import { CreateInvitationDto } from './dto/create-invitation.dto';
 import { HouseholdInvitationsService } from './invitations/household-invitations/household-invitations.service';
 import { AcceptInvitationDto } from './invitations/household-invitations/dto/accept-invitation.dto';
+import { ActiveHouseholdId } from './decorators/active-household-id.decorator';
 
 @Controller('household')
 export class HouseholdController {
@@ -98,10 +99,12 @@ export class HouseholdController {
   async sendInvitation(
     @Request() req: { user: AuthUser },
     @Body() createInvitationDto: CreateInvitationDto,
+    @ActiveHouseholdId() householdId: string,
   ) {
     return this.householdInvitationService.createInvitation(
       createInvitationDto,
       req.user.id,
+      householdId,
     );
   }
 

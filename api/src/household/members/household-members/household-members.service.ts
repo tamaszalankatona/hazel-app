@@ -48,10 +48,10 @@ export class HouseholdMembersService {
   }
 
   // list all members of the active household
-  async listAllMembers(userId: string): Promise<HouseholdMembersModel[]> {
-    const activeHouseholdId =
-      await this.householdContextService.getActiveHousehold(userId);
-
+  async listAllMembers(
+    userId: string,
+    activeHouseholdId: string,
+  ): Promise<HouseholdMembersModel[]> {
     if (!activeHouseholdId)
       throw new ConflictException('No active household selected');
 
@@ -66,11 +66,9 @@ export class HouseholdMembersService {
   async deleteMemberFromHouseholdById(
     userId: string,
     memberId: string,
+    activeHouseholdId: string,
   ): Promise<{ message: string }> {
     // # Todo: Check if the deleted user is the last ADMIN
-
-    const activeHouseholdId =
-      await this.householdContextService.getActiveHousehold(userId);
 
     if (!activeHouseholdId)
       throw new ConflictException('No active household selected');
@@ -101,11 +99,9 @@ export class HouseholdMembersService {
     userId: string,
     memberId: string,
     role: HOUSEHOLD_MEMBER_ROLES_MODEL,
+    activeHouseholdId: string,
   ): Promise<{ message: string }> {
     // # Todo: Check if the user who changes the role is an ADMIN - do it in a guard
-
-    const activeHouseholdId =
-      await this.householdContextService.getActiveHousehold(userId);
 
     const [updatedMember] = await this.db
       .update(householdMembers)
