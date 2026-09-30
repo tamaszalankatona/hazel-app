@@ -10,7 +10,7 @@ import { eq, and } from 'drizzle-orm';
 import { HouseholdModel, households } from 'src/db/schema/households';
 import { householdMembers } from 'src/db/schema/household-members';
 import { users } from 'src/db/schema/user';
-import { HOUSEHOLD_MEMBER_ROLES } from 'src/constants/household-member-roles.enums';
+import { HOUSEHOLD_MEMBER_ROLES } from 'src/household/invitations/household-invitations/constants/household-member-roles.enums';
 
 @Injectable()
 export class HouseholdService {

@@ -18,7 +18,7 @@ import { AuthService } from 'src/auth/auth.service';
 import {
   INVITATION_URL,
   INVITE_TTL_MS,
-} from 'src/constants/household-invitation.constants';
+} from 'src/household/invitations/household-invitations/constants/household-invitation.constants';
 import { inviteExpirationInHours } from 'src/utils/convert-inv-expiration.utils';
 import { EmailVariablesI } from '../send-invitation-email/email-variables.interfaces';
 
@@ -38,6 +38,7 @@ export class HouseholdInvitationsService {
   async createInvitation(
     createInvitationDto: CreateInvitationDto,
     userId: string,
+    activeHouseholdId: string,
   ): Promise<string> {
     const activeHouseholdName =
       await this.householdContextService.getActiveHouseholdName(userId);
@@ -55,10 +56,6 @@ export class HouseholdInvitationsService {
       year: new Date().getFullYear().toString(),
       expiresAt: inviteExpirationInHours(),
     };
-
-    // get the current active household to send invitation to
-    const activeHouseholdId =
-      await this.householdContextService.getActiveHousehold(userId);
 
     this.db.transaction(async (tx) => {
       await tx.delete(householdInvitations).where(
