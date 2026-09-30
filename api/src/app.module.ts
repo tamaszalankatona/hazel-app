@@ -16,6 +16,7 @@ import { HouseholdInvitationsService } from './household/invitations/household-i
 import { HouseholdMembersService } from './household/members/household-members/household-members.service';
 import { SendInvitationEmailService } from './household/invitations/send-invitation-email/send-invitation-email.service';
 import { AuthService } from './auth/auth.service';
+import { ActiveHouseholdGuard } from './household/guards/active-household.guard';
 
 @Module({
   imports: [
@@ -33,6 +34,10 @@ import { AuthService } from './auth/auth.service';
     {
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: ActiveHouseholdGuard,
     },
     HouseholdService,
     HouseholdContextService,
