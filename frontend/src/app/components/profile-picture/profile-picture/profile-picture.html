@@ -1,0 +1,18 @@
+<div class="flex items-center justify-start space-x-2">
+  <div
+    class="bg-primary w-fit"
+    [class]="variant === ProfilePictureVariants.Extended ? 'rounded-full p-4' : 'rounded-4xl p-2'"
+  >
+    <span
+      class="text-secondary font-semibold"
+      [class]="variant === ProfilePictureVariants.Extended ? 'text-xl' : 'text-base'"
+      >TZ</span
+    >
+  </div>
+  <div [class]="variant === ProfilePictureVariants.Extended ? 'flex flex-col' : 'block'">
+    <h2 class="font-semibold">Tamás Zalán</h2>
+    @if (variant === ProfilePictureVariants.Extended) {
+      <p class="text-xs font-light">test@example.com</p>
+    }
+  </div>
+</div>
