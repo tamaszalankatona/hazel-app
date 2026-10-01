@@ -21,6 +21,11 @@ export const routes: Routes = [
           import('./pages/overview-page/overview-page').then((m) => m.OverviewPage),
       },
       // other routes like Notes, etc
+      {
+        path: 'settings',
+        loadComponent: () =>
+          import('./pages/settings-page/settings-page').then((m) => m.SettingsPage),
+      },
     ],
   },
 

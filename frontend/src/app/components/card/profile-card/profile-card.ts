@@ -5,9 +5,10 @@ import { AuthStateService } from '../../../services/state-services/auth-state/au
 import { Router } from '@angular/router';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmCardImports } from '@spartan-ng/helm/card';
+import { ProfilePicture } from '../../profile-picture/profile-picture/profile-picture';
 
 @Component({
-  imports: [LucideLogOut, HlmButtonImports, HlmCardImports],
+  imports: [LucideLogOut, HlmButtonImports, HlmCardImports, ProfilePicture],
   selector: 'app-profile-card',
   styleUrl: './profile-card.css',
   templateUrl: './profile-card.html',

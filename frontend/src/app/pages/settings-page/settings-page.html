@@ -1,0 +1,24 @@
+<div>
+  <header
+    class="flex flex-col items-start justify-start space-y-4 md:flex-row md:items-center md:justify-between"
+  >
+    <div>
+      <h1 class="text-3xl font-semibold">Settings</h1>
+      <p class="text-sm font-light">
+        Manage your personal credentials, household domain, and system preferences.
+      </p>
+    </div>
+    <div class="flex gap-x-2">
+      <button hlmBtn variant="outline" type="button" size="lg">Cancel</button>
+      <button hlmBtn type="button" size="lg">Save changes</button>
+    </div>
+  </header>
+  <main>
+    <app-account-card />
+    <app-household-card />
+    <app-appearance-card />
+    <app-notifications-card />
+    <app-preferences-card />
+    <app-danger-zone-card />
+  </main>
+</div>

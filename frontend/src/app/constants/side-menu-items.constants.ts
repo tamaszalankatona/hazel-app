@@ -6,6 +6,7 @@ import {
   LucideIcon,
   LucideLayoutDashboard,
   LucideListCheck,
+  LucideSettings,
   LucideShoppingBag,
   LucideSoup,
   LucideStickyNote,
@@ -29,6 +30,7 @@ export const SIDE_MENU_ITEMS: SideMenuGroupI[] = [
     items: [
       { label: 'Overview', urlPath: '/overview', icon: LucideLayoutDashboard },
       { label: 'Notifications', urlPath: '/notifications', icon: LucideBell },
+      { label: 'Settings', urlPath: '/settings', icon: LucideSettings },
     ],
   },
   {

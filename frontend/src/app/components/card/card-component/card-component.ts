@@ -2,9 +2,10 @@ import { Component, contentChild } from '@angular/core';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmInputImports } from '@spartan-ng/helm/input';
 import { HlmLabelImports } from '@spartan-ng/helm/label';
+import { ProfileCard } from '../profile-card/profile-card';
 
 @Component({
-  imports: [HlmCardImports, HlmLabelImports, HlmInputImports],
+  imports: [HlmCardImports, HlmLabelImports, HlmInputImports, ProfileCard],
   selector: 'app-card-component',
   styleUrl: './card-component.css',
   templateUrl: './card-component.html',
