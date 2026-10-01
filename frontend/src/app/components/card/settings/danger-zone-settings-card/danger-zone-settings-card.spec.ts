@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PreferencesCard } from './preferences-card';
+import { DangerZoneCard } from './danger-zone-settings-card';
 
-describe('PreferencesCard', () => {
-  let component: PreferencesCard;
-  let fixture: ComponentFixture<PreferencesCard>;
+describe('DangerZoneCard', () => {
+  let component: DangerZoneCard;
+  let fixture: ComponentFixture<DangerZoneCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PreferencesCard],
+      imports: [DangerZoneCard],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PreferencesCard);
+    fixture = TestBed.createComponent(DangerZoneCard);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

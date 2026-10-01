@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AccountCard } from './account-card';
+import { AccountCard } from './account-settings-card';
 
 describe('AccountCard', () => {
   let component: AccountCard;
