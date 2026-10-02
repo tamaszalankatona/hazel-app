@@ -1,1 +1,21 @@
-<p>notifications-card works!</p>
+<app-card-component>
+  <app-card-header
+    headingText="Notifications"
+    descriptionText="Control how and when Hazel alerts you to family activity"
+    header
+  />
+  <div content class="w-full">
+    @for (type of notificationTypes; track type.title) {
+      <hlm-field orientation="horizontal" class="w-full">
+        <hlm-field-content>
+          <label hlmFieldLabel [for]="type.switchFor">{{ type.title }}</label>
+          <p hlmFieldDescription>{{ type.description }}</p>
+        </hlm-field-content>
+        <hlm-switch [inputId]="type.switchFor" size="default" [checked]="true" />
+      </hlm-field>
+      @if (!$last) {
+        <app-divider class="mx-2" />
+      }
+    }
+  </div>
+</app-card-component>
