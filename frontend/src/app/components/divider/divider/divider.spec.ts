@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PreferencesCard } from './preferences-card';
+import { Divider } from './divider';
 
-describe('PreferencesCard', () => {
-  let component: PreferencesCard;
-  let fixture: ComponentFixture<PreferencesCard>;
+describe('Divider', () => {
+  let component: Divider;
+  let fixture: ComponentFixture<Divider>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PreferencesCard],
+      imports: [Divider],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PreferencesCard);
+    fixture = TestBed.createComponent(Divider);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

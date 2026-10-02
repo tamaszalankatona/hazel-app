@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NotificationsCard } from './notifications-card';
+import { PreferencesCard } from './preferences-settings-card';
 
-describe('NotificationsCard', () => {
-  let component: NotificationsCard;
-  let fixture: ComponentFixture<NotificationsCard>;
+describe('PreferencesCard', () => {
+  let component: PreferencesCard;
+  let fixture: ComponentFixture<PreferencesCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NotificationsCard],
+      imports: [PreferencesCard],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NotificationsCard);
+    fixture = TestBed.createComponent(PreferencesCard);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

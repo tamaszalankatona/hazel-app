@@ -17,8 +17,6 @@ import { HouseholdCreationStateService } from '../../../services/state-services/
     HlmInputGroupImports,
     HlmButtonImports,
     LucideInfo,
-    LucideArrowLeft,
-    LucideArrowRight,
     TimezoneSelector,
   ],
   selector: 'app-create-household-details-form',

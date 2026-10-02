@@ -1,0 +1,67 @@
+<app-card-component>
+  <div header>
+    <h2 class="text-lg font-medium">Account</h2>
+    <p class="font-light">Personal credentials and contact identifiers</p>
+  </div>
+
+  <div content class="w-full min-w-0 space-y-6">
+    <div class="border-border w-full rounded-xl border bg-[#f4f4f2] p-4">
+      <div class="flex items-center justify-between">
+        <app-profile-picture [variant]="ProfilePictureVariants.Extended" />
+
+        <button hlmBtn type="button" variant="outline">Change photo</button>
+      </div>
+    </div>
+
+    <form id="change-account-informations-form" [formGroup]="form" class="w-full">
+      <hlm-field-group
+        class="flex w-full flex-col gap-6 md:flex-row md:items-start md:justify-between"
+      >
+        <hlm-field class="w-full min-w-0 flex-1">
+          <label hlmFieldLabel for="name" class="text-text text-sm font-medium"> Name </label>
+
+          <input
+            hlmInput
+            id="name"
+            type="text"
+            placeholder="John Doe"
+            autocomplete="name"
+            formControlName="name"
+            class="bg-card w-full"
+          />
+        </hlm-field>
+
+        <hlm-field class="w-full min-w-0 flex-1">
+          <label hlmFieldLabel for="email" class="text-text text-sm font-medium"> E-mail </label>
+
+          <input
+            hlmInput
+            id="email"
+            type="email"
+            placeholder="johndoe@example.com"
+            autocomplete="email"
+            formControlName="email"
+            class="bg-card w-full"
+          />
+
+          <hlm-field-error validator="required">
+            It must be a valid email address.
+          </hlm-field-error>
+        </hlm-field>
+      </hlm-field-group>
+    </form>
+    <app-divider />
+  </div>
+
+  <div footer class="w-full">
+    <div
+      class="flex w-full flex-col items-start justify-start space-y-2 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div class="flex flex-row items-center justify-start space-x-2">
+        <svg lucideKeyRound class="size-4"></svg>
+        <p class="font-light">Password last changed 42 days ago</p>
+      </div>
+      <button hlmBtn type="button" variant="outline">Change password</button>
+    </div>
+  </div>
+</app-card-component>

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DangerZoneCard } from './danger-zone-card';
+import { NotificationsCard } from './notifications-settings-card';
 
-describe('DangerZoneCard', () => {
-  let component: DangerZoneCard;
-  let fixture: ComponentFixture<DangerZoneCard>;
+describe('NotificationsCard', () => {
+  let component: NotificationsCard;
+  let fixture: ComponentFixture<NotificationsCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DangerZoneCard],
+      imports: [NotificationsCard],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DangerZoneCard);
+    fixture = TestBed.createComponent(NotificationsCard);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

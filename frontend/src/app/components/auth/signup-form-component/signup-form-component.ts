@@ -29,7 +29,6 @@ import { LucideEye, LucideEyeClosed } from '@lucide/angular';
     HlmField,
     HlmFieldError,
     HlmFieldGroup,
-    RouterLink,
   ],
   selector: 'app-signup-form-component',
   styleUrl: './signup-form-component.css',
