@@ -8,6 +8,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HlmField, HlmFieldError, HlmFieldGroup } from '@spartan-ng/helm/field';
 import { Divider } from '../../../divider/divider/divider';
 import { LucideKeyRound } from '@lucide/angular';
+import { CardHeader } from '../card-header/card-header';
 
 @Component({
   imports: [
@@ -21,6 +22,7 @@ import { LucideKeyRound } from '@lucide/angular';
     ReactiveFormsModule,
     Divider,
     LucideKeyRound,
+    CardHeader,
   ],
   selector: 'app-account-settings-card',
   styleUrl: './account-settings-card.css',
