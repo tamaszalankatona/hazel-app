@@ -1,1 +1,36 @@
-<p>danger-zone-card works!</p>
+<app-card-component>
+  <app-card-header
+    header
+    headingText="Danger Zone"
+    descriptionText="Irreversible alterations to your account & household"
+  />
+  <div content class="w-full">
+    <div
+      class="flex flex-col items-start justify-start space-y-3 sm:flex-row sm:items-center sm:justify-between sm:space-y-0"
+    >
+      <div class="w-full sm:w-5/8">
+        <h2 class="text-base font-medium">Leave household</h2>
+        <p class="font-light">
+          Relinquish administrator role and revoke your access to "Katona Family". You will need an
+          invite from an existing member to rejoin
+        </p>
+      </div>
+      <button hlmBtn type="button" variant="outline" class="text-danger border-danger">
+        Leave household
+      </button>
+    </div>
+    <app-divider class="mx-2" />
+    <div
+      class="flex flex-col items-start justify-start space-y-3 sm:flex-row sm:items-center sm:justify-between sm:space-y-0"
+    >
+      <div class="w-full sm:w-5/8">
+        <h2 class="text-danger text-base font-medium">Delete account</h2>
+        <p class="text-danger font-light">
+          Permanently delete your user account and personal data across all Hazel households. This
+          action is terminal an cannot be undone.
+        </p>
+      </div>
+      <button hlmBtn type="button" variant="default" class="bg-danger">Delete account</button>
+    </div>
+  </div>
+</app-card-component>
