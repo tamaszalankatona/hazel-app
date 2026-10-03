@@ -1,0 +1,19 @@
+<label
+  class="border-border hover:bg-muted has-[data-checked=true]:border-primary block cursor-pointer rounded-2xl border-2 p-4 transition-colors"
+>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <svg [lucideIcon]="icon" [size]="16"></svg>
+      <span class="font-semibold">{{ title }}</span>
+    </div>
+
+    <hlm-radio [value]="variant" [inputId]="'theme-' + variant">
+      <hlm-radio-indicator indicator />
+    </hlm-radio>
+  </div>
+
+  <p class="text-text-secondary my-4">{{ description }}</p>
+
+  <!-- Theme preview -->
+  <app-theme-preview [variant]="variant" />
+</label>
