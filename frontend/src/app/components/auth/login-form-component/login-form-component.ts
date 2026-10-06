@@ -54,8 +54,12 @@ export class LoginFormComponent {
     }
 
     this.authState.login(this.form.getRawValue()).subscribe({
-      next: () => {
-        this.router.navigate(['household/create']);
+      next: (response) => {
+        if (response.activeHousehold) {
+          this.router.navigate(['/overview']);
+        } else {
+          this.router.navigate(['household/create']);
+        }
       },
     });
   }
