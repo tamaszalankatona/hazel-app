@@ -14,11 +14,14 @@ import { Observable, switchMap, tap, map, catchError, of } from 'rxjs';
 export class AuthStateService {
   private readonly authApiService = inject(AuthApiService);
   readonly user = signal<AuthUser | null>(null);
+  readonly activeHousehold = signal<any | null>(null);
 
   login(credentials: LoginRequest): Observable<AuthMeResponse> {
     return this.authApiService.login(credentials).pipe(
       switchMap(() => this.authApiService.me()),
       tap((response) => {
+        this.activeHousehold.set(response.activeHousehold);
+
         this.user.set(response.user);
       }),
     );
