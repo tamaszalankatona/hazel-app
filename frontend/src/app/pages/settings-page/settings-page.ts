@@ -5,6 +5,7 @@ import { DangerZoneSettingsCard } from '../../components/card/settings/danger-zo
 import { NotificationsSettingsCard } from '../../components/card/settings/notifications-settings-card/notifications-settings-card';
 import { AppearanceSettingsCard } from '../../components/card/settings/appearance-settings-card/appearance-settings-card';
 import { PreferencesSettingsCard } from '../../components/card/settings/preferences-settings-card/preferences-settings-card';
+import { HouseholdSettingsCard } from '../../components/card/settings/household-settings-card/household-settings-card';
 
 @Component({
   imports: [
@@ -13,6 +14,7 @@ import { PreferencesSettingsCard } from '../../components/card/settings/preferen
     DangerZoneSettingsCard,
     NotificationsSettingsCard,
     PreferencesSettingsCard,
+    HouseholdSettingsCard,
   ],
   selector: 'app-settings-page',
   styleUrl: './settings-page.css',

@@ -1,1 +1,37 @@
-<p>household-card works!</p>
+<app-card-component class="">
+  <app-card-header
+    headingText="Household"
+    descriptionText="Collective domain, timezone, and family membership"
+    header
+  />
+  <div content class="w-full min-w-0 space-y-6">
+    <div class="border-border w-full rounded-xl border bg-[#f4f4f2] p-4">
+      <div
+        class="flex w-full flex-col items-start justify-start space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0"
+      >
+        <!-- TODO: swap profile-picture component to household one -->
+        <app-profile-picture [variant]="ProfilePictureVariants.Extended" />
+        <div class="flex items-center justify-start space-x-2 lg:justify-between">
+          <button hlmBtn type="button" variant="outline">Manage household</button>
+          <button hlmBtn type="button" variant="outline">Manage members</button>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div class="w-full rounded-xl border p-4">
+        <h2 class="mb-2">Assigned Timezone</h2>
+        <div content class="flex items-center justify-start space-x-2">
+          <svg lucideClock class="size-4"></svg>
+          <p class="font-semibold">Europe/Budapest (GMT+1)</p>
+        </div>
+      </div>
+      <div class="w-full rounded-xl border p-4">
+        <h2 class="mb-2">Household members</h2>
+        <div content class="flex items-center justify-start space-x-2">
+          <svg lucideUsersRound class="size-4"></svg>
+          <p class="font-semibold">2 active (1 Admin, 1 Adult)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-card-component>
