@@ -1,0 +1,22 @@
+{
+  "name": "hazel",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": "22.22.3"
+  },
+  "scripts": {
+    "dev:frontend": "pnpm --dir frontend start",
+    "dev:api": "pnpm --dir api start:dev",
+    "build:frontend": "pnpm --dir frontend build",
+    "build:api": "pnpm --dir api build",
+    "build": "pnpm build:frontend && pnpm build:api",
+    "test:frontend": "pnpm --dir frontend exec ng test --watch=false",
+    "test:api": "pnpm --dir api exec jest --runInBand",
+    "test": "pnpm test:frontend && pnpm test:api",
+    "lint:api": "pnpm --dir api exec eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "lint": "pnpm lint:api",
+    "format:check": "pnpm --dir api exec prettier --check \"src/**/*.ts\" \"test/**/*.ts\""
+  }
+}

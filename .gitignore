@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+**/dist/
+.angular/
+**/.angular/
+coverage/
+**/coverage/
+
+# Environment files — never commit secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS and editor files
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Test and tooling artifacts
+.nyc_output/
+playwright-report/
+test-results/
+
+# Local certificates and keys
+*.pem
+*.key
+*.crt
+
+# Temporary files
+tmp/
+temp/
