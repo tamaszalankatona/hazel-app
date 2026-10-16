@@ -48,7 +48,7 @@ jobs:
       - name: Run tests
         run: pnpm test
 
-      - name: Lint API
+      - name: Lint
         run: pnpm lint
 
       - name: Check formatting
