@@ -16,7 +16,8 @@
     "test:api": "pnpm --dir api exec jest --runInBand",
     "test": "pnpm test:frontend && pnpm test:api",
     "lint:api": "pnpm --dir api exec eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "lint": "pnpm lint:api",
+    "lint:frontend": "pnpm --dir frontend lint",
+    "lint": "pnpm lint:frontend && pnpm lint:api",
     "format:check": "pnpm --dir api exec prettier --check \"src/**/*.ts\" \"test/**/*.ts\""
   }
 }
