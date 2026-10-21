@@ -1,0 +1,20 @@
+{
+  "name": "hazel-app",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": "22.22.3"
+  },
+  "scripts": {
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "lint": "pnpm --recursive --if-present lint",
+    "typecheck": "pnpm --recursive --if-present typecheck",
+    "test": "pnpm --recursive --if-present test",
+    "build": "pnpm --recursive --if-present build"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
